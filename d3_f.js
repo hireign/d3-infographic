@@ -35,13 +35,14 @@ var circle = d3
 
 // positional co-ordinates for the percentages
 var dataX = [117, 147.5, 178, 208.5];
-// appending percentages to the graph
+
 const render = (data) => {
   // mapping the data from each column into a separate array
   data.map(d => {
     percentage.push(d.Percentage);
     scale.push(d.Scale);
   });
+
   // creating percentage texts on the graph
   var perc = graf
     .selectAll(".text")
