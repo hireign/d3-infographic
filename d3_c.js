@@ -6,6 +6,7 @@ d3.csv("Data/data_c.csv").then((data) => {
   });
   render(data);
 });
+
 //selecting root svg
 const svg = d3.select("svg");
 const width = 120;
