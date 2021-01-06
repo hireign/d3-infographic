@@ -1,16 +1,13 @@
 // visualization for Evaluating Opportunities Arising From Emerging Technologies
-import { select, 
-    csv
- } from 'https://unpkg.com/d3?module';
 //reading csv file
-csv("Data/data_b.csv").then(data =>{
+d3.csv("Data/data_b.csv").then(data =>{
     data.forEach(d => {
         d.Percentage = +d.Percentage
     });
     render(data);
 });
 //selecting root svg
-const svg = select('svg');
+const svg = d3.select('svg');
 //appending new graph on top of root svg
 const graf = svg.append('g')
 

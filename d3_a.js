@@ -51,7 +51,6 @@ function pathcreation(){
   .on('mouseenter', function (d, i) {
     d3.select(this)
         .attr('fill', '#bfff00')
-    console.log(this)
   })
   .on('mouseout', mouseoutA);
 }
@@ -62,7 +61,6 @@ d3.selectAll('#graphElementsA1, #graphElementsA2, #graphElementsA3, #graphElemen
     .on('mouseover', mouseover_a)
     .on('mouseout', mouseoutA);
 function mouseover_a(){
-  console.log(this.id)
   if(this.id == "graphElementsA1")
     graf.selectAll('path').attr("fill", (data, i) => colors1[i])
   else if(this.id == "graphElementsA2")
