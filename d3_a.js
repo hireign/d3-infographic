@@ -76,37 +76,6 @@ function mouseover_a(){
   else
     graf.selectAll('path').attr("fill", (data, i) => colors6[i])
 };
-// d3.selectAll('#graphElementsA2')
-//   .on('mouseover', mouseover2)
-//   .on('mouseout', mouseoutA);
-// function mouseover2(){
-//   console.log("abcd")
-//   graf.selectAll('path').attr("fill", (data, i) => colors2[i])
-// };
-// d3.selectAll('#graphElementsA3')
-//     .on('mouseover', mouseover3)
-//     .on('mouseout', mouseoutA);
-//   function mouseover3(){
-//     graf.selectAll('path').attr("fill", (d, i) => colors3[i])
-//   };
-// d3.selectAll('#graphElementsA4')
-//     .on('mouseover', mouseover4)
-//     .on('mouseout', mouseoutA);
-//   function mouseover4(){
-//     graf.selectAll('path').attr("fill", (d, i) => colors4[i])
-//   };
-// d3.selectAll('#graphElementsA5')
-//     .on('mouseover', mouseover5)
-//     .on('mouseout', mouseoutA);
-//   function mouseover5(){
-//     graf.selectAll('path').attr("fill", (d, i) => colors5[i])
-//   };
-// d3.selectAll('#graphElementsA6')
-//     .on('mouseover', mouseover6)
-//     .on('mouseout', mouseoutA);
-//   function mouseover6(){
-//     graf.selectAll('path').attr("fill", (d, i) => colors6[i])
-//   };
   function mouseoutA(){
     graf.selectAll('path').attr("fill", (d, i) => colors[i])
   };
