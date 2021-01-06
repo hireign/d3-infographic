@@ -54,10 +54,11 @@ function pathcreation(){
 }
 pathcreation();
 
-//below are code snippets to highlight a graph segment from the graph legend beside
+//code snippets to highlight a graph segment from the graph legend beside
 d3.selectAll('#graphElementsA1, #graphElementsA2, #graphElementsA3, #graphElementsA4, #graphElementsA5, #graphElementsA6')
     .on('mouseover', mouseover_a)
     .on('mouseout', mouseoutA);
+// function to highlight relevant graph segment on legend hover
 function mouseover_a(){
   if(this.id == "graphElementsA1")
     graf.selectAll('path').attr("fill", (data, i) => colors1[i])
@@ -72,6 +73,7 @@ function mouseover_a(){
   else
     graf.selectAll('path').attr("fill", (data, i) => colors6[i])
 };
+// function to reset the graph color
   function mouseoutA(){
     graf.selectAll('path').attr("fill", (d, i) => colors[i])
   };

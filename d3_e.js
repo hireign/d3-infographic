@@ -28,7 +28,7 @@ var circle = d3
 
 const render = (data) => {
   // mapping the data from each column into a separate array
-  data.map((d) => {
+  data.map(d => {
     percentage.push(d.Percentage);
     answer.push(d.Answer);
   });
@@ -40,11 +40,11 @@ const render = (data) => {
     .enter()
     .append("text")
     .attr("y", 537.5)
-    .text((d) => {
+    .text(d => {
       return d + "%";
     })
     .data(dataX)
-    .attr("x", function (d) {
+    .attr("x", d => {
       return d;
     })
     .attr("fill", "#ee742a")
