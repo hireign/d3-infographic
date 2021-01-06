@@ -1,19 +1,13 @@
 // visualization for Who is Responsible for Evaluating Emerging Technologies
-import { select, 
-    csv,
-    scaleBand,
-    scaleLinear,
-    max
- } from 'https://unpkg.com/d3?module';
 //reading file
-csv("Data/data_c.csv").then(data =>{
+d3.csv("Data/data_c.csv").then(data =>{
     data.forEach(d => {
         d.Percentage = +d.Percentage
     });
     render(data);
 });
 
-const svg = select('svg');
+const svg = d3.select('svg');
 const width = 120;
 const height = 60;
 const graf = svg.append('g')
@@ -27,13 +21,13 @@ const render = data => {
     const xValue = d => d.Percentage;
     const yValue = d => d.Groups;
 //creation of y scale
-const yScale = scaleBand()
+const yScale = d3.scaleBand()
     .domain(data.map(yValue))
     .range([0, height])
     .padding(0.2)
 //creation of x scale
-const xScale = scaleLinear()
-  .domain([0, max(data, xValue)])
+const xScale = d3.scaleLinear()
+  .domain([0, d3.max(data, xValue)])
   .range([0, width-50]);
 //creating bars using rectangle shapes
 const bars = graf
