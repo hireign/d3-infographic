@@ -1,9 +1,7 @@
 // visualization for Are Your Organization's Leaders Digitally Literate?
-import { select, 
-    csv
- } from 'https://unpkg.com/d3?module';
-
-const svg = select('svg');
+//selecting root svg
+const svg = d3.select('svg');
+//appending new graph on top of root svg
 const graf = svg.append('g')
 
 var data = [53, 25, 22];

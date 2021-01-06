@@ -6,16 +6,17 @@ d3.csv("Data/data_b.csv").then(data =>{
     });
     render(data);
 });
+
 //selecting root svg
 const svg = d3.select('svg');
 //appending new graph on top of root svg
 const graf = svg.append('g')
 
-//central position co-ordinates
+//central position co-ordinates and positioning the graph
 const positionX = 32;
 const positionY = 327;
-
 graf.attr('transform', `translate(${positionX},${positionY})`);
+
 //rendering data
 const render = data => {  //rendering data
   //creating base square segments

@@ -1,21 +1,23 @@
 // visualization for Who is Responsible for Evaluating Emerging Technologies
-//reading file
+//reading csv file
 d3.csv("Data/data_c.csv").then(data =>{
     data.forEach(d => {
         d.Percentage = +d.Percentage
     });
     render(data);
 });
-
+//selecting root svg
 const svg = d3.select('svg');
 const width = 120;
 const height = 60;
+//appending new graph on top of root svg
 const graf = svg.append('g')
 
+//central position co-ordinates and positioning the graph
 const positionX = 159;
 const positionY = 367-height;
-//positioning graf segment
 graf.attr('transform', `translate(${positionX},${positionY})`);
+
 //rendering data for calculations
 const render = data => {
     const xValue = d => d.Percentage;

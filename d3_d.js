@@ -1,25 +1,23 @@
 // visualization for Technologies With Most Potential to Deliver Transformational Value
-import { select, 
-    csv,
-    scaleBand,
-    scaleLinear,
-    max
- } from 'https://unpkg.com/d3?module';
-
-csv("Data/data_d.csv").then(data =>{
+//reading csv file
+d3.csv("Data/data_d.csv").then(data =>{
     data.forEach(d => {
         d.Percentage = +d.Percentage
     });
     render(data);
 });
-
-const svg = select('svg');
+//selecting root svg
+const svg = d3.select('svg');
 const width = 270;
 const height = 60;
+//appending new graph on top of root svg
 const graf = svg.append('g')
 
+//central position co-ordinates and positioning the graph
 const positionX = 20;
 const positionY = 483-height;
+graf.attr('transform', `translate(${positionX},${positionY})`);
+
 //original colors for the donut visualization
 var colors = ["#e97d35", "#f78b4b", "#f9a334", "#ffba45", "#fdcf84", "#feeac9", "#fbf6e0"];
 //below are the colors for hovering effect from segment names given beside on the webpage
@@ -31,20 +29,19 @@ var colors5 = ["#e97d35aa", "#f78b4baa", "#f9a334aa", "#ffba45aa", "#bfff00", "#
 var colors6 = ["#e97d35aa", "#f78b4baa", "#f9a334aa", "#ffba45aa", "#fdcf84aa", "#bfff00", "#fbf6e0aa"];
 var colors7 = ["#e97d35aa", "#f78b4baa", "#f9a334aa", "#ffba45aa", "#fdcf84aa", "#feeac9aa", "#bfff00"];
 
-graf.attr('transform', `translate(${positionX},${positionY})`);
 //rendering data from csv
 const render = data => {
     const xValue = d => d.Technology;
     const yValue = d => d.Percentage;
 //creating x and y scales
-const xScale = scaleBand()
+const xScale = d3.scaleBand()
     .domain(data.map(xValue))
     .range([0, width])
     .padding(0.4)
 const xOffset = d => xScale(xValue(d));
 
-const yScale = scaleLinear()
-  .domain([0, max(data, yValue)])
+const yScale = d3.scaleLinear()
+  .domain([0, d3.max(data, yValue)])
   .range([height, 0]);
 const yOffset = d => yScale(yValue(d));
 //creating bars using rectangles

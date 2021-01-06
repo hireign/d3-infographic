@@ -1,16 +1,14 @@
 // visualization for Top Motivators for Implementing an Emerging Technology
-// import { select, 
-//  } from 'd3-selection';
-//  csv,
-//  line
-//  import * as d3 from 'd3';
+//selecting root svg
 const svg = d3.select('svg');
+//appending new graph on top of root svg
 const graf = svg.append('g');
 
+//central position co-ordinates and positioning the graph
 const positionX = 58;
 const positionY = 228;
-
 graf.attr('transform', `translate(${positionX},${positionY})`);
+
 //original colors for the donut visualization
 var colors = ['#d56734',  '#ffe7be','#fdcf84', '#ffba45', '#f9a334', '#f78644'];
 //below are the colors for hovering effect from segment names given beside on the webpage
