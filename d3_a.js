@@ -78,13 +78,12 @@ function mouseover_a(){
     graf.selectAll('path').attr("fill", (d, i) => colors[i])
   };
   
+//creation of percentage labels  
 var labels = graf.selectAll('.text')
     .data(data)
     .enter()
     .append('g')
-    .attr("transform", "translate(-2,2)")
-    ;
-//creation of labels
+    .attr("transform", "translate(-2,2)");
 labels.append('text')
     .data(data)
     .text(function(d,i){
@@ -97,6 +96,7 @@ labels.append('text')
     .style('font-weight', '600')
     .style('font-family', 'sans-serif')
     .attr('class', 'arcLabel');
+    
 //creation of line segments from label to graph
 graf.selectAll('lines')
   .data(py(data))
