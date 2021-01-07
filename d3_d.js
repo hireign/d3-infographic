@@ -54,58 +54,75 @@ var bars = graf
     .data(data)
     .enter()
     .append('rect')
-      .attr("fill", (d, i) => colors[i])
-      .attr("id", "graphBarD")
+      .attr("id", d => d.Technology.replace(/[ '/]/g,"-").toLowerCase())
       .attr("x",d => xOffset(d))
       .attr('width', xScale.bandwidth())
-      .attr('height', 0)
+      .attr("height", 0)
       .attr("y",d => yOffset(0))
-      //hovering effect
-      .on('mouseenter', function (d, i) {
-        d3.select(this)
-            .attr('fill', '#bfff00')
-      })
-      // resetting the color after hover
-      .on('mouseout', function (d, i) {
-        d3.select(this)
-            .attr('fill', colors[i])
-      });
+      .attr("fill", (d, i) => colors[i]);
 
 // Animation at the page load
-svg.selectAll("#graphBarD")
-.transition()
-.duration(800)
-.attr("y",d => yOffset(d))
-.attr("height", function(d) { return height - yOffset(d); })
-.delay((d,i) => (i*100));
+bars
+  .transition()
+  .duration(800)
+  .attr("y",d => yOffset(d))
+  .attr("height", (d) => height - yOffset(d))
+  .delay((d,i) => (i*100));
+bars
+  .attr("class","graph-elements-d graph-bars-d");
 
 //code snippets to highlight a bar segment from the graph legend beside
-d3.selectAll('#graphElementsD1, #graphElementsD2, #graphElementsD3, #graphElementsD4, #graphElementsD5, #graphElementsD6, #graphElementsD7')
-    .on('mouseover', mouseover_d)
+d3.selectAll('.graph-bars-d,.graph-labels-d,.graph-squares-d')
+    .on('mouseover', mouseoverD)
     .on('mouseout', mouseoutD);
-// function to highlight relevant bar segment on legend hover
-function mouseover_d(){
-  if(this.id == "graphElementsD1")
-    graf.selectAll('rect').attr("fill", (data, i) => colors1[i])
-  else if(this.id == "graphElementsD2")
-    graf.selectAll('rect').attr("fill", (data, i) => colors2[i])
-  else if(this.id == "graphElementsD3")
-    graf.selectAll('rect').attr("fill", (data, i) => colors3[i])
-  else if(this.id == "graphElementsD4")
-    graf.selectAll('rect').attr("fill", (data, i) => colors4[i])
-  else if(this.id == "graphElementsD5")
-    graf.selectAll('rect').attr("fill", (data, i) => colors5[i])
-  else if(this.id == "graphElementsD6")
-    graf.selectAll('rect').attr("fill", (data, i) => colors6[i])
-  else
-    graf.selectAll('rect').attr("fill", (data, i) => colors7[i])
-};
-// function to reset the graph color
-function mouseoutD(){
-  graf.selectAll('rect').attr("fill", (d, i) => colors[i])
+
+// function to highlight relevant bar segment on hover
+function mouseoverD(){
+  if(this.id == "graph-label-d1" || this.id == "graph-square-d1" || this.id == "big-data-analytics"){
+    bars.attr("fill", (data, i) => colors1[i]);
+    d3.select("#graph-label-d1").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d1").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d2" || this.id == "graph-square-d2" || this.id == "artificial-intelligence-machine-learning-cognitive"){
+    bars.attr("fill", (data, i) => colors2[i]);
+    d3.select("#graph-label-d2").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d2").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d3" || this.id == "graph-square-d3" || this.id == "public-cloud"){
+    bars.attr("fill", (data, i) => colors3[i]);
+    d3.select("#graph-label-d3").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d3").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d4" || this.id == "graph-square-d4" || this.id == "iot"){
+    bars.attr("fill", (data, i) => colors4[i]);
+    d3.select("#graph-label-d4").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d4").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d5" || this.id == "graph-square-d5" || this.id == "blockchain"){
+    bars.attr("fill", (data, i) => colors5[i]);
+    d3.select("#graph-label-d5").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d5").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d6" || this.id == "graph-square-d6" || this.id == "ar-vr"){
+    bars.attr("fill", (data, i) => colors6[i]);
+    d3.select("#graph-label-d6").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d6").attr("fill", "#bfff00");
+  }
+  else if(this.id == "graph-label-d7" || this.id == "graph-square-d7" || this.id == "3d-printing"){
+    bars.attr("fill", (data, i) => colors7[i]);
+    d3.select("#graph-label-d7").style("font-weight",700).style("fill","#111111");
+    d3.select("#graph-square-d7").attr("fill", "#bfff00");
+  }
 };
 
-//appying labels on top of each bar
+// function to reset the graph color
+function mouseoutD(){
+  bars.attr("fill", (d, i) => colors[i]);
+  d3.selectAll(".graph-labels-d").style("font-weight",500).style("fill","#838383");
+  d3.selectAll(".graph-squares-d").attr("fill", (d,i) => colors[i]);
+};
+
+//appying percentage labels on top of each bar
 const topText = graf.append('g')
 const texts = topText
 .selectAll('text')

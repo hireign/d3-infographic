@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var port = 8080;
+var port = 8081;
 
 //selecting all public files in directory
 app.use(express.static(__dirname + '/'));
