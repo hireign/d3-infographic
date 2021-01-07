@@ -64,7 +64,22 @@ const render = (data) => {
     .append("path")
     .attr("d", arc1)
     .attr("fill", "#fcb344")
-    .attr("transform", "translate(43,535)");
+    .attr("id","graphEarc1")
+    //hovering effect
+    .on('mouseenter', function (d, i) {
+          d3.select("#graphEarc1")
+            .transition()
+            .duration(2000)
+            .attrTween("transform", rotate360);
+    });
+    // animation for bounce
+    graf.select("#graphEarc1")
+    .transition()
+    .attr("transform", "translate(43,535)")
+    .delay(600)
+    .duration(2500)
+    .ease(d3.easeBounce);
+
   // creating arc 2
   var arc2 = d3
     .arc()
@@ -77,7 +92,22 @@ const render = (data) => {
     .append("path")
     .attr("d", arc2)
     .attr("fill", "#fcb344")
-    .attr("transform", "translate(87,535)");
+    .attr("id","graphEarc2")
+    //hovering effect
+    .on('mouseenter', function (d, i) {
+          d3.select("#graphEarc2")
+            .transition()
+            .duration(2000)
+            .attrTween("transform", rotate360);
+    });
+    // animation for bounce
+    graf.select("#graphEarc2")
+    .transition()
+    .attr("transform", "translate(87,535)")
+    .delay(800)
+    .duration(2500)
+    .ease(d3.easeBounce);
+
   // creating arc 3
   var arc3 = d3
     .arc()
@@ -90,5 +120,32 @@ const render = (data) => {
     .append("path")
     .attr("d", arc3)
     .attr("fill", "#fcb344")
-    .attr("transform", "translate(130,535)");
+    .attr("id","graphEarc3")
+    //hovering effect
+    .on('mouseenter', function (d, i) {
+          d3.select("#graphEarc3")
+            .transition()
+            .duration(2000)
+            .attrTween("transform", rotate360);
+    });
+    // animation for bounce
+    graf.select("#graphEarc3")
+    .transition()
+    .attr("transform", "translate(130,535)")
+    .delay(1000)
+    .duration(2500)
+    .ease(d3.easeBounce);
+    
+    // function to rotate the arcs
+    function rotate360() {
+      var i = d3.interpolate(0, 360);
+      return function(t) {
+        if(this.id == "graphEarc1")
+          return "translate(43,535) rotate(" + i(t) + ")";
+        else if(this.id == "graphEarc2")
+          return "translate(87,535) rotate(" + i(t) + ")";
+        else if(this.id == "graphEarc3")
+          return "translate(130,535) rotate(" + i(t) + ")";
+      };
+    }
 };

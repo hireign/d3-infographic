@@ -55,8 +55,9 @@ var bars = graf
     .enter()
     .append('rect')
       .attr('width', xScale.bandwidth())
-      .attr('height', d => height - yOffset(d))
+      .attr('height', 0)
       .attr("fill", (d, i) => colors[i])
+      .attr("id", "graphBarD")
       .attr('transform', d => `translate(${xOffset(d)},${yOffset(d)})`)
       //hovering effect
       .on('mouseenter', function (d, i) {
@@ -68,6 +69,13 @@ var bars = graf
         d3.select(this)
             .attr('fill', colors[i])
       });
+
+// Animation
+svg.selectAll("#graphBarD")
+.transition()
+.duration(800)
+.attr("height", function(d) { return height - yOffset(d); })
+.delay((d,i) => (i*100));
 
 //code snippets to highlight a bar segment from the graph legend beside
 d3.selectAll('#graphElementsD1, #graphElementsD2, #graphElementsD3, #graphElementsD4, #graphElementsD5, #graphElementsD6, #graphElementsD7')
