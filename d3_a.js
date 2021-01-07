@@ -53,12 +53,14 @@ const render = (data) => {
       .data(py(percentage))
       .enter()
       .append('g')
+      .attr('id','graphApath')
       .attr('class', 'arc');
   //creation of whole path including multiple arc segments
   var paths = arcs.append('path')
   function pathcreation(){
     paths
     .attr('d', arc)
+    .attr('id','graphApath')
     .attr('fill', function(d, i) { return colors[i]; })
     //hovering effect
     .on('mouseenter', function (d, i) {
@@ -68,6 +70,11 @@ const render = (data) => {
     .on('mouseout', mouseoutA);
   }
   pathcreation();
+  // animation for rotation at beginning
+  graf.selectAll("#graphApath")
+    .transition()
+    .duration(2000)
+    .attrTween("transform", rotate360);
 
   //code snippets to highlight a graph segment from the graph legend beside
   d3.selectAll('#graphElementsA1, #graphElementsA2, #graphElementsA3, #graphElementsA4, #graphElementsA5, #graphElementsA6')
@@ -105,6 +112,7 @@ const render = (data) => {
           return(percentage[i]+"%")
       })
       .data(py(percentage))
+      .attr('id','graphApath')
       .attr("transform", function(d) { return "translate(" + arcL.centroid(d) + ")"; })
       .style('font-size', '4px')
       .style('fill', '#666666')
@@ -117,12 +125,21 @@ const render = (data) => {
     .data(py(percentage))
     .enter()
     .append('polyline')
-      .attr("stroke", "#838383")
-      .attr("stroke-width", 0.5)
-      .attr('points', function(d) {
-        var x = arc.centroid(d)
-        var y = arcL.centroid(d) 
-        return [x, y]
-      })
-      .attr("transform", "scale(0.9)")
+    .attr('id','graphApath')
+    .attr("stroke", "#838383")
+    .attr("stroke-width", 0.5)
+    .attr('points', function(d) {
+      var x = arc.centroid(d)
+      var y = arcL.centroid(d) 
+      return [x, y]
+    })
+    .attr("transform", "scale(0.9)")
+
+    // function to rotate the graph
+    function rotate360() {
+      var i = d3.interpolate(0, 3600);
+      return function(t) {
+          return "rotate(" + i(t) + ")";
+      };
+    }
 }
