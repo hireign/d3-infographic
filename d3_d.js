@@ -70,7 +70,7 @@ var bars = graf
             .attr('fill', colors[i])
       });
 
-// Animation
+// Animation at the page load
 svg.selectAll("#graphBarD")
 .transition()
 .duration(800)

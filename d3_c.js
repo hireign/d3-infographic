@@ -45,7 +45,7 @@ const render = (data) => {
     .append("rect")
     .attr("id", d => yValue(d).replace(/[ ']/g,""))
     .attr("y", (d) => yScale(yValue(d)))
-    .attr("width", (d) => xScale(xValue(d)))
+    .attr("width", 0)
     .attr("height", yScale.bandwidth())
     .attr("fill", "#ffaf46")
     //for hovering effect
@@ -55,6 +55,13 @@ const render = (data) => {
     .on("mouseout", function (d, i) {
       d3.select(this).attr("fill", "#ffaf46");
     });
+
+    // Animation at the page load for bar graph
+    bars
+    .transition()
+    .duration(800)
+    .attr("width", (d) => xScale(xValue(d)))
+    .delay((d,i) => (i*100));
 
   //appending percentage label on each bar
   const label1 = graf.append("g");
