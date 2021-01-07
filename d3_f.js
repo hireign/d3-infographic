@@ -31,9 +31,22 @@ var circle = d3
     return colors[i];
   })
   .attr("transform", "translate(400, 476)")
-  .style("stroke-width", "2px");
+  .style("stroke-width", "2px")
+  //hovering effect
+  .on('mouseover', bounce);
 
-  // animation for bounce
+  function bounce() {
+    d3.select(this)
+    .transition()
+    .duration(2000)
+    .attr("cy","84")
+    .ease(d3.easeBounce)
+    .transition()
+    .attr("cy","60")
+    .ease(d3.easeBackIn)
+  }
+
+  // animation for sliding in at beginning
   circle
   .transition()
   .attr("transform", "translate(143, 476)")
