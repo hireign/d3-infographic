@@ -73,7 +73,7 @@ const render = (data) => {
   // animation for rotation at beginning
   graf.selectAll("#graphApath")
     .transition()
-    .duration(2000)
+    .duration(3000)
     .attrTween("transform", rotate360);
 
   //code snippets to highlight a graph segment from the graph legend beside

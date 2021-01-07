@@ -30,8 +30,15 @@ var circle = d3
   .style("stroke", function (d, i) {
     return colors[i];
   })
-  .style("stroke-width", "2px")
-  .attr("transform", "translate(143, 476)");
+  .attr("transform", "translate(400, 476)")
+  .style("stroke-width", "2px");
+
+  // animation for bounce
+  circle
+  .transition()
+  .attr("transform", "translate(143, 476)")
+  .delay(500)
+  .duration(1000);
 
 // positional co-ordinates for the percentages
 var dataX = [117, 147.5, 178, 208.5];
