@@ -54,11 +54,12 @@ var bars = graf
     .data(data)
     .enter()
     .append('rect')
-      .attr('width', xScale.bandwidth())
-      .attr('height', 0)
       .attr("fill", (d, i) => colors[i])
       .attr("id", "graphBarD")
-      .attr('transform', d => `translate(${xOffset(d)},${yOffset(d)})`)
+      .attr("x",d => xOffset(d))
+      .attr('width', xScale.bandwidth())
+      .attr('height', 0)
+      .attr("y",d => yOffset(0))
       //hovering effect
       .on('mouseenter', function (d, i) {
         d3.select(this)
@@ -74,6 +75,7 @@ var bars = graf
 svg.selectAll("#graphBarD")
 .transition()
 .duration(800)
+.attr("y",d => yOffset(d))
 .attr("height", function(d) { return height - yOffset(d); })
 .delay((d,i) => (i*100));
 
