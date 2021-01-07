@@ -38,7 +38,7 @@ const render = data => {  //rendering data
   const progress1 = graf    //creation of first graph b1
     .append('rect')
     .attr('x', 0)
-    .attr('width', ((data[0].Percentage)/100)*30)
+    .attr('width', 0)
     .attr('height', 7)
     .attr('id', "progress1_b")
     .attr("fill", '#ffaf46')
@@ -46,11 +46,23 @@ const render = data => {  //rendering data
   const progress2 = graf    //creation of second graph b2
     .append('rect')
     .attr('x', 50)
-    .attr('width', ((data[1].Percentage)/100)*30)
+    .attr('width', 0)
     .attr('height', 7)
     .attr('id', "progress2_b")
     .attr("fill", '#ffaf46')
     .on('mouseenter', transition_b2);   // for transition effect
+
+// Animation at the page load for bar graph
+progress1
+  .transition()
+  .duration(800)
+  .attr('width', ((data[0].Percentage)/100)*30)
+  .delay((d,i) => (i*100));
+progress2
+  .transition()
+  .duration(800)
+  .attr('width', ((data[1].Percentage)/100)*30)
+  .delay((d,i) => (i*100));
 
   // transition effect functions
   function transition_b1(){   //transition for graph b1
