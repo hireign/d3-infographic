@@ -12,25 +12,25 @@ body{
     background-position: center;
     background-size: contain;
 }
-.brownText{
+.brown-text{
     font-family: sans-serif; 
     font-size: 4.5px; 
     fill: rgb(237 ,126,55);
     font-weight: 700;
 }
-#headingSmall{
+#heading-small{
     font-family: sans-serif; 
     font-size: 5.5px; 
     fill: #838383;
     font-weight: 500;
 }
-#headingLarge{
+#heading-large{
     font-family:  sans-serif;
     font-size: 8.4px; 
     fill: #838383;
     font-weight: 550;
 }
-#smallDescription{
+#small-description{
     font-family:  sans-serif;
     font-size: 4.5px; 
     fill: #838383;
@@ -74,7 +74,7 @@ body{
     fill: #838383;
     font-weight: 600;  
 }
-#FooterLink{
+#footer-link{
     font-family:  sans-serif;
     font-size: 5px; 
     fill: #666666;
