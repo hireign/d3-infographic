@@ -72,33 +72,33 @@ bars
   .attr("class","graph-elements-d graph-bars-d");
 
 //code snippets to highlight a bar segment from the graph legend beside
-d3.selectAll('.graph-bars-d,.graph-labels-d,.graph-squares-d')
+d3.selectAll('.graph-elements-d')
     .on('mouseover', mouseoverD)
     .on('mouseout', mouseoutD);
 
 // function to highlight relevant bar segment on hover
 function mouseoverD(){
-  if(this.id == "graph-label-d1" || this.id == "graph-square-d1" || this.id == "big-data-analytics"){
+  if(this.id == "graph-label-d1" || this.id == "graph-square-d1" || this.id == "big-data-analytics" || this.id == "graph-image-x1"  || this.id == "graph-label-x1"){
     bars.attr("fill", (data, i) => colors1[i]);
     d3.select("#graph-label-d1").style("font-weight",700).style("fill","#111111");
     d3.select("#graph-square-d1").attr("fill", "#bfff00");
   }
-  else if(this.id == "graph-label-d2" || this.id == "graph-square-d2" || this.id == "artificial-intelligence-machine-learning-cognitive"){
+  else if(this.id == "graph-label-d2" || this.id == "graph-square-d2" || this.id == "artificial-intelligence-machine-learning-cognitive" || this.id == "graph-image-x2"  || this.id == "graph-label-x2"){
     bars.attr("fill", (data, i) => colors2[i]);
     d3.select("#graph-label-d2").style("font-weight",700).style("fill","#111111");
     d3.select("#graph-square-d2").attr("fill", "#bfff00");
   }
-  else if(this.id == "graph-label-d3" || this.id == "graph-square-d3" || this.id == "public-cloud"){
+  else if(this.id == "graph-label-d3" || this.id == "graph-square-d3" || this.id == "public-cloud" || this.id == "graph-image-x3"  || this.id == "graph-label-x3"){
     bars.attr("fill", (data, i) => colors3[i]);
     d3.select("#graph-label-d3").style("font-weight",700).style("fill","#111111");
     d3.select("#graph-square-d3").attr("fill", "#bfff00");
   }
-  else if(this.id == "graph-label-d4" || this.id == "graph-square-d4" || this.id == "iot"){
+  else if(this.id == "graph-label-d4" || this.id == "graph-square-d4" || this.id == "iot" || this.id == "graph-image-x4"  || this.id == "graph-label-x4"){
     bars.attr("fill", (data, i) => colors4[i]);
     d3.select("#graph-label-d4").style("font-weight",700).style("fill","#111111");
     d3.select("#graph-square-d4").attr("fill", "#bfff00");
   }
-  else if(this.id == "graph-label-d5" || this.id == "graph-square-d5" || this.id == "blockchain"){
+  else if(this.id == "graph-label-d5" || this.id == "graph-square-d5" || this.id == "blockchain" || this.id == "graph-image-x5"  || this.id == "graph-label-x5"){
     bars.attr("fill", (data, i) => colors5[i]);
     d3.select("#graph-label-d5").style("font-weight",700).style("fill","#111111");
     d3.select("#graph-square-d5").attr("fill", "#bfff00");
