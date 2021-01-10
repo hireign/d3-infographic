@@ -161,6 +161,9 @@ const render = (data) => {
     .attr("font-weight", 600)
     .attr("font-family", "sans-serif");
 
+  //to apply colors to legend squares
+  d3.selectAll(".graph-squares-d").attr("fill", (d, i) => colors[i]);
+
   //code snippets to highlight a bar segment from the graph legend beside
   d3.selectAll(".graph-elements-d")
     .on("mouseover", mouseoverD)
@@ -181,7 +184,6 @@ const render = (data) => {
 
   // function to reset the graph color
   function mouseoutD() {
-    console.log("mouseover");
     bars.attr("fill", (d, i) => colors[i]); //to reset the color of the bars
     d3.selectAll(".graph-labels-d") //to reset the label fonts
       .style("font-weight", 500)

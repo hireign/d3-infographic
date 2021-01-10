@@ -42,18 +42,11 @@ body{
     fill: #838383;
     font-weight: 500;  
 }
-.graphElementsA{
+.graph-labels-a{
     font-family:  sans-serif;
     font-size: 4.5px; 
     fill: #838383;
     font-weight: 500;  
-}
-.graphElementsSquareA:hover{
-    fill: #bfff00;
-}
-.graphElementsA:hover{
-    fill: #111111;
-    font-weight: 700;
 }
 #scaleE{
     fill: #ee742a;
