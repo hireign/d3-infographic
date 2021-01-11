@@ -137,7 +137,6 @@ const render = (data) => {
   // function to highlight relevant graph segment on legend hover
   function mouseoverA() {
     var segmemtId = this.id.slice(-1); //represents the id for the graph segment (1,2,3,...,7)
-    console.log(segmemtId);
     paths.attr("fill", (data, i) => colorArr[parseInt(segmemtId) - 1][i]); //to change the color of the arcs
     d3.select("#graph-label-a" + segmemtId) //to highlight the label fonts
       .style("font-weight", 700)

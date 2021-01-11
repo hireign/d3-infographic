@@ -25,7 +25,7 @@ graf.attr("transform", `translate(${positionX},${positionY})`);
 var colors = ["#ec7936", "#fca24c", "#fecd88", "#fdeac2"];
 // manipulating and transforming the svg circles already created on the base graph
 var circle = d3
-  .selectAll(".circleF")
+  .selectAll(".graph-circles-f")
   .style("fill", "#ffffff")
   .style("stroke", function (d, i) {
     return colors[i];

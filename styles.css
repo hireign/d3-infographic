@@ -18,19 +18,19 @@ body{
     fill: rgb(237 ,126,55);
     font-weight: 700;
 }
-#heading-small{
+.heading-small{
     font-family: sans-serif; 
     font-size: 5.5px; 
     fill: #838383;
     font-weight: 500;
 }
-#heading-large{
+.heading-large{
     font-family:  sans-serif;
     font-size: 8.4px; 
     fill: #838383;
     font-weight: 550;
 }
-#small-description{
+.small-description{
     font-family:  sans-serif;
     font-size: 4.5px; 
     fill: #838383;
@@ -48,19 +48,19 @@ body{
     fill: #838383;
     font-weight: 500;  
 }
-#scaleE{
+.graph-labels-e{
     fill: #ee742a;
     font-size: 5;
     font-weight: 600;
     font-family: sans-serif;
 }
-#scaleF{
+.graph-labels-f{
     font-family:  sans-serif;
     font-size: 4.5px; 
     fill: #838383;
     font-weight: 600;  
 }
-#footer-link{
+.footer-link{
     font-family:  sans-serif;
     font-size: 5px; 
     fill: #666666;

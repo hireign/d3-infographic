@@ -21,7 +21,7 @@ var dataX = [37, 81, 124];
 
 // styling the base svg circles on the graph
 var circle = d3
-  .selectAll(".circleE")
+  .selectAll(".graph-circles-e")
   .style("fill", "#ffffff")
   .style("stroke", "#ffe9c9")
   .style("stroke-width", "5px");
