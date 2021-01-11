@@ -87,7 +87,7 @@ const render = (data) => {
 
   //labels for graph b
   // percentage label for first graph
-  const label1 = graf
+  const percentage1 = graf
     .append("text")
     .text((d) => data[0].Percentage + "%")
     .attr("x", 0)
@@ -99,7 +99,7 @@ const render = (data) => {
     .attr("id", "graph-percentage-b1")
     .attr("class", "graph-elements-b graph-percentages-b graph-elements-b1");
   // percentage label for second graph
-  const label2 = graf
+  const percentage2 = graf
     .append("text")
     .text((d) => data[1].Percentage + "%")
     .attr("x", 50)
@@ -111,7 +111,7 @@ const render = (data) => {
     .attr("id", "graph-percentage-b2")
     .attr("class", "graph-elements-b graph-percentages-b graph-elements-b2");
   // static text for organizations
-  const label3 = graf
+  const label1 = graf
     .append("text")
     .text("organizations")
     .attr("x", 0)
@@ -122,7 +122,7 @@ const render = (data) => {
     .attr("font-family", "sans-serif")
     .attr("class", "graph-elements-b graph-elements-b1");
   // static text for organizations
-  const label4 = graf
+  const label2 = graf
     .append("text")
     .text("organizations")
     .attr("x", 50)
@@ -135,7 +135,7 @@ const render = (data) => {
     .attr("font-family", "sans-serif")
     .attr("class", "graph-elements-b graph-elements-b2");
   // label to show evaluation type loaded from csv
-  const label5 = graf
+  const label3 = graf
     .append("text")
     .text(data[0].Type)
     .attr("x", -1)
@@ -147,7 +147,7 @@ const render = (data) => {
     .attr("id", "graph-label-b1")
     .attr("class", "graph-elements-b graph-labels-b graph-elements-b1");
   // label to show evaluation type loaded from csv
-  const label6 = graf
+  const label4 = graf
     .append("text")
     .text(data[1].Type)
     .attr("x", 45)

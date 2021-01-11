@@ -43,7 +43,7 @@ const render = (data) => {
     .data(data)
     .enter()
     .append("rect")
-    .attr("id", d => yValue(d).replace(/[ ']/g,""))
+    .attr("id", (d) => yValue(d).replace(/[ ']/g, ""))
     .attr("y", (d) => yScale(yValue(d)))
     .attr("width", 0)
     .attr("height", yScale.bandwidth())
@@ -56,12 +56,12 @@ const render = (data) => {
       d3.select(this).attr("fill", "#ffaf46");
     });
 
-    // Animation at the page load for bar graph
-    bars
+  // Animation at the page load for bar graph
+  bars
     .transition()
     .duration(800)
     .attr("width", (d) => xScale(xValue(d)))
-    .delay((d,i) => (i*100));
+    .delay((d, i) => i * 100);
 
   //appending percentage label on each bar
   const label1 = graf.append("g");
@@ -70,7 +70,7 @@ const render = (data) => {
     .data(data)
     .enter()
     .append("text")
-    .text(d => xValue(d) + "%")
+    .text((d) => xValue(d) + "%")
     .attr("x", 2)
     .attr("y", (d) => yScale(yValue(d)) + 7)
     .attr("fill", "#fefefe")
@@ -79,10 +79,10 @@ const render = (data) => {
     .attr("font-family", "sans-serif")
     //for hovering effect
     .on("mouseenter", function (d, i) {
-      d3.select("#"+d.Groups.replace(/[ ']/g,"")).attr("fill", "#bfff00");
+      d3.select("#" + d.Groups.replace(/[ ']/g, "")).attr("fill", "#bfff00");
     })
     .on("mouseout", function (d, i) {
-      d3.select("#"+d.Groups.replace(/[ ']/g,"")).attr("fill", "#ffaf46");
+      d3.select("#" + d.Groups.replace(/[ ']/g, "")).attr("fill", "#ffaf46");
     });
 
   //appending responsible group names beside bar ends
@@ -92,7 +92,7 @@ const render = (data) => {
     .data(data)
     .enter()
     .append("text")
-    .text(d => yValue(d))
+    .text((d) => yValue(d))
     .attr("x", (d) => xScale(xValue(d)) + 3)
     .attr("y", (d) => yScale(yValue(d)) + 6.5)
     .attr("fill", "#ee742a")

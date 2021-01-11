@@ -1,69 +1,73 @@
-html { 
-    overflow-y: scroll;
-    overflow-x: hidden; 
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-body{
-    height: 625px;
-    width: 318px;
-    margin: auto;
-    padding: 0px;
-    background:    url("Images/background.jpg");                   
-    background-repeat:   no-repeat;
-    background-position: center;
-    background-size: contain;
+body {
+  height: 625px;
+  width: 318px;
+  margin: auto;
+  padding: 0px;
 }
-.brown-text{
-    font-family: sans-serif; 
-    font-size: 4.5px; 
-    fill: rgb(237 ,126,55);
-    font-weight: 700;
+svg {
+  background: url("Images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
-.heading-small{
-    font-family: sans-serif; 
-    font-size: 5.5px; 
-    fill: #838383;
-    font-weight: 500;
+.brown-text {
+  font-family: sans-serif;
+  font-size: 4.5px;
+  fill: rgb(237, 126, 55);
+  font-weight: 700;
 }
-.heading-large{
-    font-family:  sans-serif;
-    font-size: 8.4px; 
-    fill: #838383;
-    font-weight: 550;
+.heading-small {
+  font-family: sans-serif;
+  font-size: 5.5px;
+  fill: #838383;
+  font-weight: 500;
 }
-.small-description{
-    font-family:  sans-serif;
-    font-size: 4.5px; 
-    fill: #838383;
-    font-weight: 500;    
+.heading-large {
+  font-family: sans-serif;
+  font-size: 8.4px;
+  fill: #838383;
+  font-weight: 550;
 }
-.graph-labels-d{
-    font-family:  sans-serif;
-    font-size: 4.5px; 
-    fill: #838383;
-    font-weight: 500;  
+.small-description {
+  font-family: sans-serif;
+  font-size: 4.5px;
+  fill: #838383;
+  font-weight: 500;
 }
-.graph-labels-a{
-    font-family:  sans-serif;
-    font-size: 4.5px; 
-    fill: #838383;
-    font-weight: 500;  
+.graph-labels-d {
+  font-family: sans-serif;
+  font-size: 4.5px;
+  fill: #838383;
+  font-weight: 500;
 }
-.graph-labels-e{
-    fill: #ee742a;
-    font-size: 5;
-    font-weight: 600;
-    font-family: sans-serif;
+.graph-labels-a {
+  font-family: sans-serif;
+  font-size: 4.5px;
+  fill: #838383;
+  font-weight: 500;
 }
-.graph-labels-f{
-    font-family:  sans-serif;
-    font-size: 4.5px; 
-    fill: #838383;
-    font-weight: 600;  
+.graph-labels-e {
+  fill: #ee742a;
+  font-size: 5;
+  font-weight: 600;
+  font-family: sans-serif;
 }
-.footer-link{
-    font-family:  sans-serif;
-    font-size: 5px; 
-    fill: #666666;
-    font-weight: bold;
-    font-stretch: ultra-condensed;   
+.graph-labels-f {
+  font-family: sans-serif;
+  font-size: 4.5px;
+  fill: #838383;
+  font-weight: 600;
 }
+.footer-link {
+  font-family: sans-serif;
+  font-size: 5px;
+  fill: #666666;
+  font-weight: bold;
+  font-stretch: ultra-condensed;
+}
+/* .btn {
+} */
