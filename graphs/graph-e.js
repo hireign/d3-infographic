@@ -1,6 +1,6 @@
 // visualization for Are Your Organization's Leaders Digitally Literate?
 //reading csv file
-d3.csv("Data/data_e.csv").then((data) => {
+d3.csv("data/data-e.csv").then((data) => {
   data.forEach((d) => {
     d.Percentage = +d.Percentage;
   });

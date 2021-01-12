@@ -1,6 +1,6 @@
 // visualization for Who is Responsible for Evaluating Emerging Technologies
 //reading csv file
-d3.csv("Data/data_c.csv").then((data) => {
+d3.csv("data/data-c.csv").then((data) => {
   data.forEach((d) => {
     d.Percentage = +d.Percentage;
   });

@@ -1,6 +1,6 @@
 // visualization for Top Motivators for Implementing an Emerging Technology
 //reading csv file
-d3.csv("Data/data_a.csv").then((data) => {
+d3.csv("data/data-a.csv").then((data) => {
   data.forEach((d) => {
     d.Percentage = +d.Percentage;
   });

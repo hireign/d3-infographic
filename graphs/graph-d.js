@@ -1,6 +1,6 @@
 // visualization for Technologies With Most Potential to Deliver Transformational Value
 //reading csv file
-d3.csv("Data/data_d.csv").then((data) => {
+d3.csv("data/data-d.csv").then((data) => {
   data.forEach((d) => {
     d.Percentage = +d.Percentage;
   });

@@ -11,6 +11,9 @@ lerna-debug.log*
 node_modules/
 jspm_packages/
 
+# Custom
+ignored/
+
 # Media
 Screenshots
 

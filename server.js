@@ -13,3 +13,6 @@ app.listen(port, function(){
 app.get('/', function(request, response){
     response.sendFile(path.join(__dirname + '/d3.html'))
 });
+app.get('/404', function(request, response){
+    response.sendFile(path.join(__dirname + '/404.html'))
+});

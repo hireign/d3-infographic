@@ -1,6 +1,6 @@
 // visualization for Evaluating Opportunities Arising From Emerging Technologies
 //reading csv file
-d3.csv("Data/data_b.csv").then((data) => {
+d3.csv("data/data-b.csv").then((data) => {
   data.forEach((d) => {
     d.Percentage = +d.Percentage;
   });

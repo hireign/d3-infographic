@@ -1,6 +1,6 @@
 // visualization for Are Your Organization's Leaders Receptive to Emerging Tech?
 //reading csv file
-d3.csv("Data/data_f.csv").then(data => {
+d3.csv("data/data-f.csv").then(data => {
   data.forEach(d => {
     d.Percentage = +d.Percentage;
   });
