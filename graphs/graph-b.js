@@ -1,25 +1,29 @@
 // visualization for Evaluating Opportunities Arising From Emerging Technologies
 //reading csv file
-d3.csv("data/data-b.csv").then((data) => {
-  data.forEach((d) => {
-    d.Percentage = +d.Percentage;
+const fileParser = (filename) =>
+  d3.csv(filename).then((data) => {
+    data.forEach((d) => {
+      d.Percentage = +d.Percentage;
+    });
+    render(data);
   });
-  render(data);
-});
 
 //selecting root svg
 const svg = d3.select("svg");
-//appending new graph on top of root svg
-const graf = svg.append("g");
-
-//central position co-ordinates and positioning the graph
-const positionX = 32;
-const positionY = 327;
-graf.attr("transform", `translate(${positionX},${positionY})`);
 
 //rendering data
 const render = (data) => {
   //rendering data
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-b").remove();
+  //appending new graph on top of root svg
+  const graf = svg.append("g").attr("id", "g-graph-b");
+
+  //central position co-ordinates and positioning the graph
+  const positionX = 32;
+  const positionY = 327;
+  graf.attr("transform", `translate(${positionX},${positionY})`);
+
   //creating base square segments
   const base1 = graf //base rectangle 1
     .append("rect")
@@ -252,3 +256,7 @@ const render = (data) => {
       .duration(50);
   }
 };
+
+// parsing csv file and causing the data to render
+var csvFile = "data/data-b.csv";
+fileParser(csvFile);

@@ -1,28 +1,27 @@
 // visualization for Top Motivators for Implementing an Emerging Technology
 //reading csv file
-d3.csv("data/data-a.csv").then((data) => {
-  data.forEach((d) => {
-    d.Percentage = +d.Percentage;
+const fileParser = (file) =>
+  d3.csv(file).then((data) => {
+    data.forEach((d) => {
+      d.Percentage = +d.Percentage;
+    });
+    render(data); // renders the data and creates graphs by calling the render function
   });
-  render(data);
-});
 
 // array to be populated with csv data
 var percentage = [];
-//selecting root svg
-const svg = d3.select("svg");
-//appending new graph on top of root svg
-const graf = svg.append("g");
-
-//central position co-ordinates and positioning the graph
-const positionX = 58;
-const positionY = 228;
-graf.attr("transform", `translate(${positionX},${positionY})`);
 
 //original colors for the donut visualization
-var colors = ["#d56734", "#f78644", "#f9a334", "#ffba45", "#fdcf84", "#ffe7be"];
+const colors = [
+  "#d56734",
+  "#f78644",
+  "#f9a334",
+  "#ffba45",
+  "#fdcf84",
+  "#ffe7be",
+];
 //below are the colors for hovering effect from segment names given beside on the webpage
-var colorArr = [
+const colorArr = [
   ["#bfff00", "#f78644aa", "#f9a334aa", "#ffba45aa", "#fdcf84aa", "#ffe7beaa"],
   ["#d56734aa", "#bfff00", "#f9a334aa", "#ffba45aa", "#fdcf84aa", "#ffe7beaa"],
   ["#d56734aa", "#f78644aa", "#bfff00", "#ffba45aa", "#fdcf84aa", "#ffe7beaa"],
@@ -34,19 +33,33 @@ var colorArr = [
 //data(in percentage)
 const r = 25;
 //pie() and arc() functions for calculations of start,end angles of different chart segments
-var py = d3.pie().value(function (d) {
+const py = d3.pie().value(function (d) {
   return d;
 });
 //arc foundation for the donut
-var arc = d3.arc().innerRadius(16).outerRadius(r);
+const arc = d3.arc().innerRadius(16).outerRadius(r);
 //arc foundation for labels
-var arcL = d3.arc().innerRadius(30).outerRadius(33);
+const arcL = d3.arc().innerRadius(30).outerRadius(33);
+
+//selecting root svg
+const svg = d3.select("svg");
 
 const render = (data) => {
-  // mapping the data from each column into a separate array
+  percentage = [];
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-a").remove();
+  // mapping the data from percentage column into a separate array
   data.map((d) => {
     percentage.push(d.Percentage);
   });
+
+  //appending new graph on top of root svg
+  const graf = svg.append("g").attr("id", "g-graph-a");
+
+  //central position co-ordinates and positioning the graph
+  const positionX = 58;
+  const positionY = 228;
+  graf.attr("transform", `translate(${positionX},${positionY})`);
 
   //creation of arc segments
   var arcs = graf.selectAll(".arc").data(py(percentage)).enter().append("g");
@@ -165,3 +178,9 @@ const render = (data) => {
     d3.selectAll(".graph-squares-a").attr("fill", (d, i) => colors[i]); //to reset the legend square
   }
 };
+
+// parsing csv file and causing the data to render
+var csvFile = "data/data-a.csv";
+fileParser(csvFile);
+
+export {fileParser};
