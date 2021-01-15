@@ -1,5 +1,6 @@
 // visualization for Evaluating Opportunities Arising From Emerging Technologies
 //reading csv file
+var csvFile = "data/data-b.csv"; // file containing graph data
 const fileParser = (filename) =>
   d3.csv(filename).then((data) => {
     data.forEach((d) => {
@@ -13,9 +14,9 @@ const svg = d3.select("svg");
 
 //rendering data
 const render = (data) => {
-  //rendering data
   // removing graph element if already exists in case of reloading the graph
   d3.select("#g-graph-b").remove();
+
   //appending new graph on top of root svg
   const graf = svg.append("g").attr("id", "g-graph-b");
 
@@ -258,5 +259,6 @@ const render = (data) => {
 };
 
 // parsing csv file and causing the data to render
-var csvFile = "data/data-b.csv";
 fileParser(csvFile);
+
+export { fileParser };

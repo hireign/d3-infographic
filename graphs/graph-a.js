@@ -1,7 +1,8 @@
 // visualization for Top Motivators for Implementing an Emerging Technology
 //reading csv file
-const fileParser = (file) =>
-  d3.csv(file).then((data) => {
+var csvFile = "data/data-a.csv"; // file containing graph data
+const fileParser = (filename) =>
+  d3.csv(filename).then((data) => {
     data.forEach((d) => {
       d.Percentage = +d.Percentage;
     });
@@ -45,13 +46,15 @@ const arcL = d3.arc().innerRadius(30).outerRadius(33);
 const svg = d3.select("svg");
 
 const render = (data) => {
-  percentage = [];
-  // removing graph element if already exists in case of reloading the graph
-  d3.select("#g-graph-a").remove();
+  //emptying the array if already populated
+  percentage = []; //emptying the array if already populated
   // mapping the data from percentage column into a separate array
   data.map((d) => {
     percentage.push(d.Percentage);
   });
+
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-a").remove();
 
   //appending new graph on top of root svg
   const graf = svg.append("g").attr("id", "g-graph-a");
@@ -180,7 +183,6 @@ const render = (data) => {
 };
 
 // parsing csv file and causing the data to render
-var csvFile = "data/data-a.csv";
 fileParser(csvFile);
 
-export {fileParser};
+export { fileParser, csvFile };

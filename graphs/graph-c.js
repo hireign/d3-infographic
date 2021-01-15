@@ -1,28 +1,34 @@
 // visualization for Who is Responsible for Evaluating Emerging Technologies
 //reading csv file
-d3.csv("data/data-c.csv").then((data) => {
-  data.forEach((d) => {
-    d.Percentage = +d.Percentage;
+var csvFile = "data/data-c.csv"; // file containing graph data
+const fileParser = (filename) =>
+  d3.csv(filename).then((data) => {
+    data.forEach((d) => {
+      d.Percentage = +d.Percentage;
+    });
+    render(data);
   });
-  render(data);
-});
 
 //selecting root svg
 const svg = d3.select("svg");
 const width = 120;
 const height = 60;
-//appending new graph on top of root svg
-const graf = svg.append("g");
-
-//central position co-ordinates and positioning the graph
-const positionX = 159;
-const positionY = 367 - height;
-graf.attr("transform", `translate(${positionX},${positionY})`);
 
 //rendering data for calculations
 const render = (data) => {
   const xValue = (d) => d.Percentage;
   const yValue = (d) => d.Groups;
+
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-c").remove();
+
+  //appending new graph on top of root svg
+  const graf = svg.append("g").attr("id", "g-graph-c");
+
+  //central position co-ordinates and positioning the graph
+  const positionX = 159;
+  const positionY = 367 - height;
+  graf.attr("transform", `translate(${positionX},${positionY})`);
 
   //creation of y scale
   const yScale = d3
@@ -100,3 +106,8 @@ const render = (data) => {
     .attr("font-weight", 600)
     .attr("font-family", "sans-serif");
 };
+
+// parsing csv file and causing the data to render
+fileParser(csvFile);
+
+export { fileParser };

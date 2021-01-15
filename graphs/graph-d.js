@@ -1,23 +1,18 @@
 // visualization for Technologies With Most Potential to Deliver Transformational Value
 //reading csv file
-d3.csv("data/data-d.csv").then((data) => {
-  data.forEach((d) => {
-    d.Percentage = +d.Percentage;
+var csvFile = "data/data-d.csv"; // file containing graph data
+const fileParser = (filename) =>
+  d3.csv(filename).then((data) => {
+    data.forEach((d) => {
+      d.Percentage = +d.Percentage;
+    });
+    render(data);
   });
-  render(data);
-});
 
 //selecting root svg
 const svg = d3.select("svg");
 const width = 270;
 const height = 60;
-//appending new graph on top of root svg
-const graf = svg.append("g");
-
-//central position co-ordinates and positioning the graph
-const positionX = 20;
-const positionY = 483 - height;
-graf.attr("transform", `translate(${positionX},${positionY})`);
 
 //original colors for the donut visualization
 var colors = [
@@ -100,6 +95,17 @@ var colorArr = [
 const render = (data) => {
   const xValue = (d) => d.Technology;
   const yValue = (d) => d.Percentage;
+
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-d").remove();
+
+  //appending new graph on top of root svg
+  const graf = svg.append("g").attr("id", "g-graph-d");
+
+  //central position co-ordinates and positioning the graph
+  const positionX = 20;
+  const positionY = 483 - height;
+  graf.attr("transform", `translate(${positionX},${positionY})`);
 
   //creating xScale
   const xScale = d3
@@ -194,3 +200,7 @@ const render = (data) => {
     d3.selectAll(".graph-squares-d").attr("fill", (d, i) => colors[i]); //to reset the legend square
   }
 };
+
+fileParser(csvFile);
+
+export { fileParser };

@@ -1,11 +1,13 @@
 // visualization for Are Your Organization's Leaders Digitally Literate?
 //reading csv file
-d3.csv("data/data-e.csv").then((data) => {
-  data.forEach((d) => {
-    d.Percentage = +d.Percentage;
+var csvFile = "data/data-e.csv"; // file containing graph data
+const fileParser = (filename) =>
+  d3.csv(filename).then((data) => {
+    data.forEach((d) => {
+      d.Percentage = +d.Percentage;
+    });
+    render(data);
   });
-  render(data);
-});
 
 // creating empty arrays to be populated with data further
 var percentage = [],
@@ -13,8 +15,6 @@ var percentage = [],
 
 //selecting root svg
 const svg = d3.select("svg");
-//appending new graph on top of root svg
-const graf = svg.append("g");
 
 // positional co-ordinates for the percentages
 var dataX = [37, 81, 124];
@@ -27,11 +27,20 @@ var circle = d3
   .style("stroke-width", "5px");
 
 const render = (data) => {
+  //emptying the arrays if already populated
+  percentage = [];
+  answer = [];
   // mapping the data from each column into a separate array
-  data.map(d => {
+  data.map((d) => {
     percentage.push(d.Percentage);
     answer.push(d.Answer);
   });
+
+  // removing graph element if already exists in case of reloading the graph
+  d3.select("#g-graph-e").remove();
+
+  //appending new graph on top of root svg
+  const graf = svg.append("g").attr("id", "g-graph-e");
 
   // creating percentage texts on the graph
   var perc = graf
@@ -40,11 +49,11 @@ const render = (data) => {
     .enter()
     .append("text")
     .attr("y", 537.5)
-    .text(d => {
+    .text((d) => {
       return d + "%";
     })
     .data(dataX)
-    .attr("x", d => {
+    .attr("x", (d) => {
       return d;
     })
     .attr("fill", "#ee742a")
@@ -64,16 +73,17 @@ const render = (data) => {
     .append("path")
     .attr("d", arc1)
     .attr("fill", "#fcb344")
-    .attr("id","graphEarc1")
+    .attr("id", "graphEarc1")
     //hovering effect
-    .on('mouseenter', function (d, i) {
-          d3.select("#graphEarc1")
-            .transition()
-            .duration(2000)
-            .attrTween("transform", rotate360);
+    .on("mouseenter", function (d, i) {
+      d3.select("#graphEarc1")
+        .transition()
+        .duration(2000)
+        .attrTween("transform", rotate360);
     });
-    // animation for bounce
-    graf.select("#graphEarc1")
+  // animation for bounce
+  graf
+    .select("#graphEarc1")
     .transition()
     .attr("transform", "translate(43,535)")
     .delay(600)
@@ -92,16 +102,17 @@ const render = (data) => {
     .append("path")
     .attr("d", arc2)
     .attr("fill", "#fcb344")
-    .attr("id","graphEarc2")
+    .attr("id", "graphEarc2")
     //hovering effect
-    .on('mouseenter', function (d, i) {
-          d3.select("#graphEarc2")
-            .transition()
-            .duration(2000)
-            .attrTween("transform", rotate360);
+    .on("mouseenter", function (d, i) {
+      d3.select("#graphEarc2")
+        .transition()
+        .duration(2000)
+        .attrTween("transform", rotate360);
     });
-    // animation for bounce
-    graf.select("#graphEarc2")
+  // animation for bounce
+  graf
+    .select("#graphEarc2")
     .transition()
     .attr("transform", "translate(87,535)")
     .delay(800)
@@ -120,32 +131,38 @@ const render = (data) => {
     .append("path")
     .attr("d", arc3)
     .attr("fill", "#fcb344")
-    .attr("id","graphEarc3")
+    .attr("id", "graphEarc3")
     //hovering effect
-    .on('mouseenter', function (d, i) {
-          d3.select("#graphEarc3")
-            .transition()
-            .duration(2000)
-            .attrTween("transform", rotate360);
+    .on("mouseenter", function (d, i) {
+      d3.select("#graphEarc3")
+        .transition()
+        .duration(2000)
+        .attrTween("transform", rotate360);
     });
-    // animation for bounce
-    graf.select("#graphEarc3")
+  // animation for bounce
+  graf
+    .select("#graphEarc3")
     .transition()
     .attr("transform", "translate(130,535)")
     .delay(1000)
     .duration(2500)
     .ease(d3.easeBounce);
-    
-    // function to rotate the arcs
-    function rotate360() {
-      var i = d3.interpolate(0, 360);
-      return function(t) {
-        if(this.id == "graphEarc1")
-          return "translate(43,535) rotate(" + i(t) + ")";
-        else if(this.id == "graphEarc2")
-          return "translate(87,535) rotate(" + i(t) + ")";
-        else if(this.id == "graphEarc3")
-          return "translate(130,535) rotate(" + i(t) + ")";
-      };
-    }
+
+  // function to rotate the arcs
+  function rotate360() {
+    var i = d3.interpolate(0, 360);
+    return function (t) {
+      if (this.id == "graphEarc1")
+        return "translate(43,535) rotate(" + i(t) + ")";
+      else if (this.id == "graphEarc2")
+        return "translate(87,535) rotate(" + i(t) + ")";
+      else if (this.id == "graphEarc3")
+        return "translate(130,535) rotate(" + i(t) + ")";
+    };
+  }
 };
+
+// parsing csv file and causing the data to render
+fileParser(csvFile);
+
+export { fileParser };
