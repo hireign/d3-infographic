@@ -36,7 +36,7 @@ var fileParserArray = [
 console.log(typeof fileParserA)
 
 // function to reload the graph
-const reloadData = () => fileParserArray.forEach((d,i) => fileParserArray[i](csvArray[i]))
+const reloadData = () => fileParserArray.forEach((d,i) => d(csvArray[i]))
 
 // to fetch the reload button from html dom
 window.onload = () => {
