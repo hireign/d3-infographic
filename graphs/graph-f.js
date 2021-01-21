@@ -30,25 +30,6 @@ function bounce() {
     .ease(d3.easeBackIn);
 }
 
-// manipulating and transforming the svg circles already created on the base graph
-var circle = d3
-  .selectAll(".graph-circles-f")
-  .style("fill", "#ffffff")
-  .style("stroke", function (d, i) {
-    return colors[i];
-  })
-  .attr("transform", "translate(400, 476)")
-  .style("stroke-width", "2px")
-  //hovering effect
-  .on("mouseover", bounce);
-
-// animation for sliding in at beginning
-circle
-  .transition()
-  .attr("transform", "translate(143, 476)")
-  .delay(500)
-  .duration(1000);
-
 // positional co-ordinates for the percentages
 var dataX = [117, 147.5, 178, 208.5];
 
@@ -91,6 +72,25 @@ const render = (data) => {
     .style("fill", "#838383")
     .style("font-weight", "600")
     .style("font-family", "sans-serif");
+
+  // manipulating and transforming the svg circles already created on the base graph
+  var circle = d3
+    .selectAll(".graph-circles-f")
+    .style("fill", "#ffffff")
+    .style("stroke", function (d, i) {
+      return colors[i];
+    })
+    .attr("transform", "translate(400, 476)")
+    .style("stroke-width", "2px")
+    //hovering effect
+    .on("mouseover", bounce);
+
+  // animation for sliding in at beginning
+  circle
+    .transition()
+    .attr("transform", "translate(143, 476)")
+    .delay(500)
+    .duration(1000);
 };
 
 // parsing csv file and causing the data to render
