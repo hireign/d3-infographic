@@ -261,4 +261,4 @@ const render = (data) => {
 // parsing csv file and causing the data to render
 fileParser(csvFile);
 
-export { fileParser };
+export { fileParser, csvFile };

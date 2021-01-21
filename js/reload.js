@@ -5,23 +5,23 @@ import {
 import {
   fileParser as fileParserB,
   csvFile as csvB,
-} from "../graphs/graph-a.js";
+} from "../graphs/graph-b.js";
 import {
   fileParser as fileParserC,
   csvFile as csvC,
-} from "../graphs/graph-a.js";
+} from "../graphs/graph-c.js";
 import {
   fileParser as fileParserD,
   csvFile as csvD,
-} from "../graphs/graph-a.js";
+} from "../graphs/graph-d.js";
 import {
   fileParser as fileParserE,
   csvFile as csvE,
-} from "../graphs/graph-a.js";
+} from "../graphs/graph-e.js";
 import {
   fileParser as fileParserF,
   csvFile as csvF,
-} from "../graphs/graph-a.js";
+} from "../graphs/graph-f.js";
 
 var csvArray = [csvA, csvB, csvC, csvD, csvE, csvF];
 var fileParserArray = [
@@ -34,12 +34,16 @@ var fileParserArray = [
 ];
 
 // function to reload the graph
-const reloadData = (callback, csv) => {
-  callback(csv);
-};
+function reloadData(callbackArr, csvArr) {
+  var i = 0;
+  for (i = 0; i < callbackArr.length; i++) {
+    console.log(callbackArr[i](csvArr[i]));
+    callbackArr[i](csvArr[i]);
+  }
+}
 
 // to fetch the reload button from html dom
 window.onload = () => {
   var btn = document.getElementById("btn-reload");
-  btn.onclick = (d,i) => reloadData(fileParserArray[i], csvArray[i]);
+  btn.onclick = () => reloadData(fileParserArray, csvArray);
 };

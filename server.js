@@ -11,7 +11,7 @@ app.listen(process.env.PORT || port, function(){
     console.log('Listening to Port '+port)
 });
 app.get('/', function(request, response){
-    response.sendFile(path.join(__dirname + '/d3.html'))
+    response.sendFile(path.join(__dirname + '/index.html'))
 });
 app.get('/404', function(request, response){
     response.sendFile(path.join(__dirname + '/404.html'))
