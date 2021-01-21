@@ -33,17 +33,13 @@ var fileParserArray = [
   fileParserF,
 ];
 
+console.log(typeof fileParserA)
+
 // function to reload the graph
-function reloadData(callbackArr, csvArr) {
-  var i = 0;
-  for (i = 0; i < callbackArr.length; i++) {
-    console.log(callbackArr[i](csvArr[i]));
-    callbackArr[i](csvArr[i]);
-  }
-}
+const reloadData = () => fileParserArray.forEach((d,i) => fileParserArray[i](csvArray[i]))
 
 // to fetch the reload button from html dom
 window.onload = () => {
   var btn = document.getElementById("btn-reload");
-  btn.onclick = () => reloadData(fileParserArray, csvArray);
+  btn.onclick = () => reloadData();
 };
