@@ -33,8 +33,6 @@ var fileParserArray = [
   fileParserF,
 ];
 
-console.log(typeof fileParserA)
-
 // function to reload the graph
 const reloadData = () => fileParserArray.forEach((d,i) => d(csvArray[i]))
 

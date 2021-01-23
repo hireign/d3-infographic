@@ -1,19 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 html {
-  overflow-y: scroll;
-  overflow-x: hidden;
+  background-color: grey;
+  overflow-x: visible;
 }
 body {
-  height: 625px;
-  width: 318px;
-  margin: auto;
-  padding: 0px;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
-svg {
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* setting up image as svg background */
+.zoomout {
+  width: 318;
+  height: 625;
   background: url("../images/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
+  zoom: 1;
 }
+
+/* footer elements */
+.footer {
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dddddd;
+  text-align: center;
+  zoom: reset;
+}
+.btn-div {
+  padding: 5px;
+}
+.btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  margin-right: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+.btn:hover {
+  background-color: #47a54b;
+  cursor: pointer;
+}
+
+/* graph elements */
 .brown-text {
   font-family: sans-serif;
   font-size: 4.5px;
@@ -69,5 +122,49 @@ svg {
   font-weight: bold;
   font-stretch: ultra-condensed;
 }
-/* .btn {
-} */
+
+@media only screen and (min-height: 700px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.1;
+  }
+}
+@media only screen and (min-height: 800px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.1;
+  }
+}
+@media only screen and (min-height: 900px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.4;
+  }
+}
+@media only screen and (min-height: 1000px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.5;
+  }
+}
+@media only screen and (min-height: 1100px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.7;
+  }
+}
+@media only screen and (min-height: 1200px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 1.8;
+  }
+}
+@media only screen and (min-height: 1300px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 2;
+  }
+}
+@media only screen and (min-height: 1500px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 2.4;
+  }
+}
+@media only screen and (min-height: 1700px) and (min-width: 375px) {
+  .zoomout{
+    zoom: 2.8;
+  }
+}

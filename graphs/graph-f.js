@@ -14,7 +14,7 @@ var percentage = [],
   scale = [];
 
 //selecting root svg
-const svg = d3.select("svg");
+const svg = d3.select(".zoomout");
 
 // colors for all 4 circles
 var colors = ["#ec7936", "#fca24c", "#fecd88", "#fdeac2"];

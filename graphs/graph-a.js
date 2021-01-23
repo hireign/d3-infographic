@@ -43,7 +43,7 @@ const arc = d3.arc().innerRadius(16).outerRadius(r);
 const arcL = d3.arc().innerRadius(30).outerRadius(33);
 
 //selecting root svg
-const svg = d3.select("svg");
+const svg = d3.select(".zoomout");
 
 const render = (data) => {
   //emptying the array if already populated

@@ -14,7 +14,7 @@ var percentage = [],
   answer = [];
 
 //selecting root svg
-const svg = d3.select("svg");
+const svg = d3.select(".zoomout");
 
 // positional co-ordinates for the percentages
 var dataX = [37, 81, 124];

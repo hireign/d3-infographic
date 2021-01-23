@@ -10,7 +10,7 @@ const fileParser = (filename) =>
   });
 
 //selecting root svg
-const svg = d3.select("svg");
+const svg = d3.select(".zoomout");
 
 //rendering data
 const render = (data) => {
