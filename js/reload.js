@@ -38,6 +38,8 @@ const reloadData = () => fileParserArray.forEach((d,i) => d(csvArray[i]))
 
 // to fetch the reload button from html dom
 window.onload = () => {
-  var btn = document.getElementById("btn-reload");
-  btn.onclick = () => reloadData();
+  var btnReload = document.getElementById("btn-reload");
+  var btnRandomize = document.getElementById("btn-randomize");
+  btnReload.onclick = () => reloadData();
+  btnRandomize.onclick = () => alert("Coming soon!")
 };

@@ -17,7 +17,7 @@ body {
   margin-left: 0;
   margin-right: 0;
   margin-top: 20px;
-  margin-bottom: 0;
+  margin-bottom: 50px;
 }
 .center {
   margin-left: auto;
@@ -44,6 +44,7 @@ body {
   bottom: 0;
   width: 100%;
   background-color: #dddddd;
+  opacity: 0.9;
   text-align: center;
   zoom: reset;
 }
@@ -62,7 +63,7 @@ body {
   font-size: 10px;
 }
 .btn:hover {
-  background-color: #47a54b;
+  background-color: #238f28;
   cursor: pointer;
 }
 
@@ -124,47 +125,47 @@ body {
 }
 
 @media only screen and (min-height: 700px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.1;
   }
 }
 @media only screen and (min-height: 800px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.1;
   }
 }
 @media only screen and (min-height: 900px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.4;
   }
 }
 @media only screen and (min-height: 1000px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.5;
   }
 }
 @media only screen and (min-height: 1100px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.7;
   }
 }
 @media only screen and (min-height: 1200px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 1.8;
   }
 }
 @media only screen and (min-height: 1300px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 2;
   }
 }
 @media only screen and (min-height: 1500px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 2.4;
   }
 }
 @media only screen and (min-height: 1700px) and (min-width: 375px) {
-  .zoomout{
+  .zoomout, .footer{
     zoom: 2.8;
   }
 }
