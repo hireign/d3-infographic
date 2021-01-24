@@ -19,7 +19,7 @@ const svg = d3.select(".zoomout");
 // colors for all 4 circles
 var colors = ["#ec7936", "#fca24c", "#fecd88", "#fdeac2"];
 
-function bounce() {
+function drop() {
   d3.select(this)
     .transition()
     .duration(2000)
@@ -28,6 +28,63 @@ function bounce() {
     .transition()
     .attr("cy", "60")
     .ease(d3.easeBackIn);
+}
+
+function bounce() {
+  d3.select(this)
+    .transition()
+    .duration(2000)
+    .attr("transform", "translate(-43, 476)")
+    .ease(d3.easeBounce)
+    .transition()
+    .duration(2000)
+    .attr("transform", "translate(143, 476)")
+    .ease(d3.easeBounce);
+}
+
+function fadein() {
+  d3.select(this)
+    .transition()
+    .duration(500)
+    .attr("transform", "translate(143, 800)")
+    .ease(d3.easeLinear)
+    .transition()
+    .duration(400)
+    .attr("transform", "translate(-800, 800)")
+    .transition()
+    .duration(400)
+    .attr("transform", "translate(-800, -400)")
+    .transition()
+    .duration(400)
+    .attr("transform", "translate(143, -400)")
+    .transition()
+    .duration(500)
+    .attr("transform", "translate(143, 476)")
+    .ease(d3.easeLinear);
+}
+
+function linear() {
+  d3.select(this)
+    .transition()
+    .duration(2000)
+    .attr("transform", "translate(-13, 300)")
+    .ease(d3.easeElasticIn)
+    .transition()
+    .duration(500)
+    .attr("transform", "translate(250, 170)")
+    .ease(d3.easeLinear)
+    .transition()
+    .duration(350)
+    .attr("transform", "translate(80, 72)")
+    .ease(d3.easeLinear)
+    .transition()
+    .duration(250)
+    .attr("transform", "translate(-13, 120)")
+    .ease(d3.easeLinear)
+    .transition()
+    .duration(600)
+    .attr("transform", "translate(143, 476)")
+    .ease(d3.easeLinear)
 }
 
 // positional co-ordinates for the percentages
@@ -81,9 +138,13 @@ const render = (data) => {
       return colors[i];
     })
     .attr("transform", "translate(400, 476)")
-    .style("stroke-width", "2px")
-    //hovering effect
-    .on("mouseover", bounce);
+    .style("stroke-width", "2px");
+
+    //hovering effect on circles
+    d3.select("#graph-circle-f1").on("mouseover", linear);
+    d3.select("#graph-circle-f2").on("mouseover", bounce);
+    d3.select("#graph-circle-f3").on("mouseover", fadein);
+    d3.select("#graph-circle-f4").on("mouseover", drop);
 
   // animation for sliding in at beginning
   circle
