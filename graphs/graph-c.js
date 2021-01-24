@@ -14,6 +14,17 @@ const svg = d3.select(".zoomout");
 const width = 120;
 const height = 60;
 
+// functions for bar movement
+function dragstarted(event, d) {
+  d3.select(this).raise().attr("stroke", "black");
+}
+function dragged(event, d) {
+  d3.select(this).attr("x", d3.event.x).attr("y", d3.event.y);
+}
+function dragended(event, d) {
+  d3.select(this).attr("stroke", null);
+}
+
 //rendering data for calculations
 const render = (data) => {
   const xValue = (d) => d.Percentage;
@@ -54,13 +65,23 @@ const render = (data) => {
     .attr("width", 0)
     .attr("height", yScale.bandwidth())
     .attr("fill", "#ffaf46")
-    //for hovering effect
+    // for hovering effect
     .on("mouseenter", function (d, i) {
-      d3.select(this).attr("fill", "#bfff00");
+      d3.select(this).attr("fill", "#bfff00").attr("cursor", "move");
     })
     .on("mouseout", function (d, i) {
       d3.select(this).attr("fill", "#ffaf46");
     });
+
+  // handles drag on bars
+  var dragHandler = d3
+    .drag()
+    .on("start", dragstarted)
+    .on("drag", dragged)
+    .on("end", dragended);
+
+  // assigning draghandler to bars
+  dragHandler(bars);
 
   // Animation at the page load for bar graph
   bars

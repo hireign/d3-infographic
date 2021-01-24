@@ -23,10 +23,10 @@ function drop() {
   d3.select(this)
     .transition()
     .duration(2000)
-    .attr("cy", "84")
+    .attr("transform", "translate(143, 501)")
     .ease(d3.easeBounce)
     .transition()
-    .attr("cy", "60")
+    .attr("transform", "translate(143, 476)")
     .ease(d3.easeBackIn);
 }
 
