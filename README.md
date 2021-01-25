@@ -66,3 +66,27 @@ Deployment notes if you want to deploy using Docker
     ``` 
     docker rm <container-name/id> 
     ```
+
+## Development
+For local development follow the notes below.
+### Clone
+Clone the GitHub repository using below HTTPS command:
+    ```
+    git clone https://github.com/hireign/d3-infographic.git
+    ```
+### Prerequisites
+Install the prerequisites for local development
+* Node.js - install from https://nodejs.org/en/download/
+### Dependencies
+Install the package.json dependencies using below command:
+    ```
+    npm install
+    ```
+### Run
+Run the project using below command:
+    ```
+    npm start
+    ```
+
+| :point_up:    | If you like this project, feel free to drop a hello! |
+|---------------|:------------------------|
