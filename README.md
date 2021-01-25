@@ -17,7 +17,7 @@ Feel free to check out the live version here: https://d3-infographic.herokuapp.c
 * CSS Media Queries are used for making webpages responsive on every kind of device.
 
 ## Deployment
-Below are the notes for deployment using Docker and Heroku
+Notes for deployment using Docker and Heroku
 ### To deploy with Heroku:
 1. Install Heroku cli
 2. Heroku login
@@ -68,9 +68,9 @@ Deployment notes if you want to deploy using Docker
     ```
 
 ## Development
-For local development follow the notes below.
+For local development follow these notes.
 ### Clone
-Clone the GitHub repository using below HTTPS command:
+Clone the GitHub repository:
     ```
     git clone https://github.com/hireign/d3-infographic.git
     ```
@@ -78,12 +78,12 @@ Clone the GitHub repository using below HTTPS command:
 Install the prerequisites for local development
 * Node.js - install from https://nodejs.org/en/download/
 ### Dependencies
-Install the package.json dependencies using below command:
+Install the package.json dependencies:
     ```
     npm install
     ```
 ### Run
-Run the project using below command:
+Run the project:
     ```
     npm start
     ```
